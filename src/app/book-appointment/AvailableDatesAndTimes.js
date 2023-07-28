@@ -14,7 +14,7 @@ import 'primeicons/primeicons.css';
 //function to populate buttons from date
 function getAvailableTimes(dateSelected) {
     let availableTimes = ["5:00 PM", "6:00 PM","7:00 PM","8:00 PM","9:00 PM"];
-    
+
     let availableTimesButtons = availableTimes.map((time) => <Button label={time} icon="pi pi-clock" style={{margin: "0.5rem"}} id={"button" + time} /> );
 
     return (<div style={{maxWidth: "400px", margin: "auto"}}>
@@ -41,7 +41,8 @@ export default function AvailableDatesAndTimes() {
  return (
     <div className="card flex justify-content-center">
         <Calendar value={date} onChange={(e) => setDate(e.value)} inline minDate={minDate} maxDate={maxDate} />
-        <h3>Available times on {date.toLocaleDateString()}: </h3>
+        <h3>Fecha: {date.toLocaleDateString()} </h3>
+        <h3>Selecciona la hora de tu cita: </h3>
         {getAvailableTimes(date)}
     </div>
  );
