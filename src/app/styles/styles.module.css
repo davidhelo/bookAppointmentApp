@@ -5,6 +5,7 @@
 }
 
 .selectedTimeButton {
+    margin: 0.35rem;
     background-color: #6366F1;
     color: #ffff;
 }
