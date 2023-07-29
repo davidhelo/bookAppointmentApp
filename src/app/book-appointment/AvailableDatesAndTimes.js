@@ -6,9 +6,10 @@ import "primereact/resources/themes/lara-light-indigo/theme.css";
 //core
 import "primereact/resources/primereact.min.css"; 
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Calendar } from 'primereact/calendar';
 import { Button } from 'primereact/button';
+import { Toast } from 'primereact/toast';
 import { addLocale } from 'primereact/api';
 
 import 'primeicons/primeicons.css';
@@ -33,7 +34,7 @@ function getAvailableTimes(dateSelected, updateDateTimeState) {
             className={dateSelected.getTime() === time.getTime() ? styles.selectedTimeButton : styles.availableTimeButton} 
             id={"button" + String(time.getHours()) + ":" + time.getMinutes().toLocaleString('en-US', {minimumIntegerDigits: 2})} 
             onClick={() => updateDateTimeState(time)}
-            raised small
+            raised
         /> 
     );
 
@@ -42,8 +43,24 @@ function getAvailableTimes(dateSelected, updateDateTimeState) {
     </div>);
 }
 
+
+
+function validateConfirmationTime(currentDateTimeState, showError, showSuccess) {
+    
+    if (currentDateTimeState.getHours() === 0 && currentDateTimeState.getMinutes() === 0) {
+        console.log("Seleccione un horario: ", currentDateTimeState);
+        showError();
+    } else {
+        console.log("cita confirmada: ", currentDateTimeState);
+        showSuccess();
+    }
+
+    return
+}
+
 export default function AvailableDatesAndTimes() {
     let today = new Date();
+    today.setHours(0, 0);
     let month = today.getMonth();
     let year = today.getFullYear();
     let nextMonth = month === 11 ? 0 : month + 1;
@@ -74,11 +91,20 @@ export default function AvailableDatesAndTimes() {
         weekday: "long",
         year: "numeric",
         month: "long",
-        day: "numeric",
+        day: "numeric"
         };
+    
+    const toast = useRef(null);
+    const showError = () => {
+        toast.current.show({severity:'error', summary: 'Horario invalido', detail:'Por favor seleccione un horario', life: 3000});
+    }
+    const showSuccess = () => {
+        toast.current.show({severity:'success', summary: 'Cita confirmada', detail:'Su cita ha sido confirmada para el dia: ' + dateTime.toLocaleDateString("es-MX", {dateStyle: "full"}), life: 3000});
+    }
 
  return (
     <div className="card flex justify-content-center">
+        <Toast ref={toast} />
         <Calendar 
             value={dateTime} 
             onChange={(e) => setDateTime(e.value)} 
@@ -94,8 +120,10 @@ export default function AvailableDatesAndTimes() {
             label={"Confirmar"} 
             icon="pi pi-calendar" 
             id="buttonConfirm"
-            onClick={() => console.log("cita confirmada:", dateTime)}
+            onClick={() => validateConfirmationTime(dateTime, showError, showSuccess)}
+            className={styles.confirmButton}
             raised
+            large
         /> 
     </div>
  );

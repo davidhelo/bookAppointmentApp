@@ -14,3 +14,9 @@
     max-width: 450px;
     margin: auto;
 }
+
+.confirmButton {
+    margin: 2rem; 
+    padding: 1rem;
+    border: 2px solid black;
+}
