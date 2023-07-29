@@ -28,4 +28,15 @@
     margin: 2rem; 
     padding: 1rem;
     border: 2px solid black;
+    background-color: #9e63a5;
+}
+
+.confirmButton:hover {
+    background-color: hsl(294, 27%, 55%) !important;
+    border-color: black !important;
+}
+
+.confirmButton:active {
+    background-color: hsl(294, 27%, 55%) !important;
+    border-color: hsl(294, 27%, 55%) !important;
 }
