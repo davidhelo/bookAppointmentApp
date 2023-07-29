@@ -104,7 +104,7 @@ export default function AvailableDatesAndTimes() {
 
  return (
     <div className="card flex justify-content-center">
-        <Toast ref={toast} position="center" />
+        <Toast ref={toast} />
         <Calendar 
             value={dateTime} 
             onChange={(e) => setDateTime(e.value)} 
