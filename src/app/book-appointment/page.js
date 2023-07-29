@@ -7,7 +7,6 @@ import Image from 'next/image'
 
 import '../styles/global.css';
 import utils from "../styles/utils.module.css";
-import styles from "../styles/styles.module.css";
 
 export default function BookAppointment() {
   return (
