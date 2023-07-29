@@ -1,0 +1,15 @@
+.availableTimeButton {
+    margin: 0.35rem;
+    background-color: transparent;
+    color: #6366F1;
+}
+
+.selectedTimeButton {
+    background-color: #6366F1;
+    color: #ffff;
+}
+
+.buttonsContainer {
+    max-width: 450px;
+    margin: auto;
+}
