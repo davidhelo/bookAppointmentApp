@@ -23,8 +23,8 @@ export default function BookAppointment() {
             style={{margin: "auto"}}
           />
           <h1 className={utils.heading2Xl}>Agendar una cita</h1>
-          <p><Link href="/">Go back</Link></p>
-          <h2>Service 2</h2>
+          <p><Link href="/">Volver a Inicio</Link></p>
+          <h2>Servicio: limpieza Facial</h2>
           <AvailableDatesAndTimes />
       </div>
     </Layout>
