@@ -1,12 +1,21 @@
 .availableTimeButton {
     margin: 0.35rem;
     background-color: transparent;
-    color: #6366F1;
+    border-color: #AB78B1;
+    color: #AB78B1;
+    
+}
+
+.availableTimeButton:hover, .selectedTimeButton:hover {
+    background-color: #AB78B1 !important;
+    border-color: #AB78B1 !important;
+    color: #ffff !important;
 }
 
 .selectedTimeButton {
     margin: 0.35rem;
-    background-color: #6366F1;
+    background-color: #AB78B1;
+    border-color: #AB78B1;
     color: #ffff;
 }
 
