@@ -8,12 +8,14 @@ import Image from 'next/image'
 import '../styles/global.css';
 import utils from "../styles/utils.module.css";
 
+export const metadata = {
+  title: 'Agendar cita',
+  description: 'Agendar una cita',
+}
+
 export default function BookAppointment() {
   return (
     <Layout>
-      <Head>
-        <title>Agendar una cita</title>
-      </Head>
       <div className="book-appointment-component" style={{textAlign: 'center'}}>
           <Image 
             src="/images/Cosmelh-logo.png"

@@ -95,11 +95,27 @@ export default function AvailableDatesAndTimes() {
         };
     
     const toast = useRef(null);
+
     const showError = () => {
-        toast.current.show({severity:'error', summary: 'Horario invalido', detail:'Por favor seleccione un horario', life: 3000});
+        toast.current.show(
+            {
+                severity:'error', 
+                summary: 'Horario invalido', 
+                detail:'Por favor seleccione un horario', 
+                life: 3000
+            }
+        );
     }
+
     const showSuccess = () => {
-        toast.current.show({severity:'success', summary: 'Cita confirmada', detail:'Su cita ha sido confirmada para el dia: ' + dateTime.toLocaleDateString("es-MX", {dateStyle: "full"}), life: 3000});
+        toast.current.show(
+            {
+                severity:'success', 
+                summary: 'Cita confirmada', 
+                detail:'Su cita ha sido confirmada para el dia: ' + dateTime.toLocaleDateString("es-MX", {dateStyle: "full"}), 
+                life: 3000
+            }
+        );
     }
 
  return (
@@ -123,7 +139,6 @@ export default function AvailableDatesAndTimes() {
             onClick={() => validateConfirmationTime(dateTime, showError, showSuccess)}
             className={styles.confirmButton}
             raised
-            large
         /> 
     </div>
  );
