@@ -3,7 +3,7 @@ import Link from "next/link";
 import Head from "next/head";
 import Layout from "../layout";
 import AvailableDatesAndTimes from "./AvailableDatesAndTimes";
-import Image from 'next/image'
+import Image from 'next/image';
 
 import '../styles/global.css';
 import utils from "../styles/utils.module.css";
@@ -25,7 +25,7 @@ export default function BookAppointment() {
             style={{margin: "auto"}}
           />
           <h1 className={utils.heading2Xl}>Agendar una cita</h1>
-          <p><Link href="/">Volver a Inicio</Link></p>
+          <Link href="/">Volver a Inicio</Link>
           <h2>Servicio: limpieza Facial</h2>
           <AvailableDatesAndTimes />
       </div>

@@ -1,22 +1,23 @@
+ 
 .availableTimeButton {
     margin: 0.35rem;
     background-color: transparent;
-    border-color: #AB78B1;
-    color: #AB78B1;
+    border-color: var(--primary-color);
+    color: var(--text-color-secondary);
     
 }
 
 .availableTimeButton:hover, .selectedTimeButton:hover {
-    background-color: #AB78B1 !important;
-    border-color: #AB78B1 !important;
-    color: #ffff !important;
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: var(--primary-color-text) !important;
 }
 
 .selectedTimeButton {
     margin: 0.35rem;
-    background-color: #AB78B1;
-    border-color: #AB78B1;
-    color: #ffff;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--primary-color-text);
 }
 
 .buttonsContainer {
@@ -32,11 +33,6 @@
 }
 
 .confirmButton:hover {
-    background-color: hsl(294, 27%, 55%) !important;
+    background-color: var(--highlight-text-color) !important;
     border-color: black !important;
-}
-
-.confirmButton:active {
-    background-color: hsl(294, 27%, 55%) !important;
-    border-color: hsl(294, 27%, 55%) !important;
 }

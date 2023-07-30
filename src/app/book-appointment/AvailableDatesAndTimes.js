@@ -1,8 +1,9 @@
 'use client'
 
 //theme
-import "primereact/resources/themes/lara-light-indigo/theme.css";     
-    
+// import "primereact/resources/themes/lara-light-purple/theme.css";
+import "../styles/custom-light-theme.css";
+
 //core
 import "primereact/resources/primereact.min.css"; 
 
