@@ -113,7 +113,7 @@ export default function AvailableDatesAndTimes() {
             {
                 severity:'success', 
                 summary: 'Cita confirmada', 
-                detail:'Su cita ha sido confirmada para el dia: ' + dateTime.toLocaleDateString("es-MX", {dateStyle: "full"}), 
+                detail:'Su cita ha sido confirmada para el dia: ' + dateTime.toLocaleDateString("es-MX", {dateStyle: "full"}) + ", a las " + String(dateTime.getHours()) + ":" + dateTime.getMinutes().toLocaleString('en-US', {minimumIntegerDigits: 2}) + " horas.", 
                 life: 3000
             }
         );
