@@ -7,7 +7,7 @@
     
 }
 
-.availableTimeButton:hover, .selectedTimeButton:hover {
+.availableTimeButton:hover, .selectedTimeButton:hover, .pButton:hover {
     background-color: var(--primary-color) !important;
     border-color: var(--primary-color-text) !important;
     color: var(--primary-color-text) !important;
@@ -36,3 +36,13 @@
     background-color: var(--highlight-text-color) !important;
     border-color: black !important;
 }
+
+.pButton {
+    color: #ffffff;
+    background: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    text-decoration: none !important;
+  }

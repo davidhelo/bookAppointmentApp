@@ -1,8 +1,10 @@
 import './styles/global.css';
+import styles from './styles/styles.module.css';
+
 import Link from "next/link";
 import Layout from "./layout";
 import Navbar from './components/Navbar.js';
-        
+
  
 export const metadata = {
   title: 'Project Come',
@@ -10,14 +12,14 @@ export const metadata = {
 }
 
 export default function Page() {
-  
-
   return (
     <Layout>
       <Navbar  />
       <div id="home">
-      <h1>Hello, home section: clic to <Link href="/book-appointment">book appointment.</Link></h1>
-      <p>Nothing</p>
+        <h1>Cosmetología Profesional</h1>
+        <h3>Cuidados de la piel para lucir increible.</h3>
+        <p>Remoción de vello y cuidado de la piel facial y corporal.</p>
+        <Link href="#services" className={styles.pButton} >Ver servicios</Link>
       </div>
       <div id="services">
         <h1>Servicios. <Link href="/book-appointment">book appointment.</Link></h1>
