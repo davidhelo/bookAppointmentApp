@@ -5001,7 +5001,7 @@
 }
 .p-menubar .p-menuitem-link .p-menuitem-icon {
   color: #6c757d;
-  margin-right: 0.5rem;
+  margin-right: 0rem;
 }
 .p-menubar .p-menuitem-link .p-submenu-icon {
   color: #6c757d;
@@ -5102,9 +5102,9 @@
   color: #6D28D9;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 800px) {
   .p-menubar {
-    position: relative;
+    padding-left: 0.15rem;
   }
   .p-menubar .p-menubar-button {
     display: flex;
