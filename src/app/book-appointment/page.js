@@ -5,8 +5,8 @@ import Layout from "../layout";
 import AvailableDatesAndTimes from "./AvailableDatesAndTimes";
 import Image from 'next/image';
 
-import '../styles/global.css';
-import utils from "../styles/utils.module.css";
+import '../../styles/global.css';
+import utils from "../../styles/utils.module.css";
 
 export const metadata = {
   title: 'Agendar cita',

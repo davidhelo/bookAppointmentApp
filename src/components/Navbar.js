@@ -1,7 +1,7 @@
 'use client'
 
 import { Menubar } from 'primereact/menubar';
-import Layout from "../layout";
+import Layout from "../app/layout";
 
 // CSS imports
 //theme

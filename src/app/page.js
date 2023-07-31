@@ -1,9 +1,9 @@
-import './styles/global.css';
-import styles from './styles/styles.module.css';
+import '../styles/global.css';
+import styles from '../styles/styles.module.css';
 
 import Link from "next/link";
 import Layout from "./layout";
-import Navbar from './components/Navbar.js';
+import Navbar from '../components/Navbar.js';
 
  
 export const metadata = {

@@ -2,7 +2,7 @@
 
 //theme
 // import "primereact/resources/themes/lara-light-purple/theme.css";
-import "../styles/custom-light-theme.css";
+import "../../styles/custom-light-theme.css";
 
 //core
 import "primereact/resources/primereact.min.css"; 
@@ -14,7 +14,7 @@ import { Toast } from 'primereact/toast';
 import { addLocale } from 'primereact/api';
 
 import 'primeicons/primeicons.css';
-import styles from "../styles/styles.module.css";
+import styles from "../../styles/styles.module.css";
 
 //function to populate buttons from date
 function getAvailableTimes(dateSelected, updateDateTimeState) {
