@@ -16,13 +16,15 @@ export default function Page() {
     <Layout>
       <Navbar  />
       <div id="home">
-        <h1>Cosmetología Profesional</h1>
+        <h1 id="mainTitle">COSMETOLOGÍA PROFESIONAL</h1>
         <h3>Cuidados de la piel para lucir increible.</h3>
         <p>Remoción de vello y cuidado de la piel facial y corporal.</p>
         <Link href="#services" className={styles.pButton} >Ver servicios</Link>
       </div>
+      <hr></hr>
       <div id="services">
-        <h1>Servicios. <Link href="/book-appointment">book appointment.</Link></h1>
+        <h1>Servicios. </h1>
+        <Link href="/book-appointment" className={styles.pButton} >Agendar una cita</Link>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sodales sagittis tincidunt. Sed ac justo porta, posuere lectus vitae, ornare leo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec ultrices efficitur mauris, a tempor ex luctus at. In luctus quam et imperdiet vehicula. Donec quis est id orci consequat euismod in at tellus. Pellentesque venenatis ac neque et vehicula. Curabitur ex velit, mattis gravida convallis quis, sollicitudin sed risus. Sed eleifend rutrum nisi nec molestie.
 
 Maecenas ornare turpis ante, vel efficitur erat dictum non. Maecenas fringilla lacinia dictum. Maecenas ornare ipsum a massa efficitur, ut bibendum eros rutrum. Suspendisse massa massa, semper vitae efficitur id, facilisis eu elit. Vivamus sed leo elementum, cursus lorem vel, aliquam nisl. Praesent et libero non dui tristique sollicitudin. Nulla eu accumsan augue, sed porttitor nulla. Aliquam justo velit, feugiat nec maximus ut, rutrum sed leo. Vestibulum vestibulum quam sed tempus mollis. Quisque quis risus sit amet purus facilisis ullamcorper. Fusce facilisis sagittis orci et sagittis. Pellentesque nec lectus id lorem pretium viverra. Vivamus euismod porttitor dapibus. Phasellus ut imperdiet erat.

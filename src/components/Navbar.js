@@ -35,7 +35,7 @@ export default function Navbar () {
   const start = 
     <a href="/" style={{display: "flex", alignItems: "center"}}>
         <img alt="logo" src="/images/Cosmelh-logo-top.png" height="60" className="mr-2"></img>
-        <img alt="logo" src="/images/Cosmelh-logo-bottom.png" height="40" className="mr-2"></img>
+        <img alt="logo" src="/images/Cosmelh-logo-bottom.png" height="25" className="mr-2"></img>
     </a>;
 
     return (

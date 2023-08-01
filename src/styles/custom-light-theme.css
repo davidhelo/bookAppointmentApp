@@ -1,4 +1,5 @@
 :root {
+  --background-color: #eef4ec;
   --surface-a:#ffffff;
   --surface-b:#f8f9fa;
   --surface-c:#e9ecef;
@@ -5102,7 +5103,7 @@
   color: #6D28D9;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 930px) {
   .p-menubar {
     padding-left: 0.15rem;
   }
