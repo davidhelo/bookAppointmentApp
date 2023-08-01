@@ -3110,10 +3110,6 @@
   padding: 1.25rem;
 }
 
-.fc {
-  /* FullCalendar 4 */
-  /* FullCalendar 5 */
-}
 .fc.fc-unthemed .fc-view-container th {
   background: #f8f9fa;
   border: 1px solid #dee2e6;
@@ -4028,26 +4024,45 @@
 }
 
 .p-card {
+  max-width: 45%;
+  min-width: 250px;
+  max-height: auto;
   background: #ffffff;
   color: #495057;
   box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
   border-radius: 6px;
+  margin: 0.5rem;
+  padding-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
 }
+
+@media screen and (max-width: 800px) {
+  .p-card {
+    max-width: 100%;
+  }
+}
+
 .p-card .p-card-body {
-  padding: 1.25rem;
+  flex-grow: 4;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 .p-card .p-card-title {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
 .p-card .p-card-subtitle {
   font-weight: 400;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0;
   color: #6c757d;
 }
 .p-card .p-card-content {
-  padding: 1.25rem 0;
+  padding: 0 0;
 }
 .p-card .p-card-footer {
   padding: 1.25rem 0 0 0;
@@ -6044,7 +6059,7 @@
   color: #ffffff;
   font-size: 0.75rem;
   font-weight: 700;
-  padding: 0.25rem 0.4rem;
+  padding: 2.25rem 0.4rem;
   border-radius: 6px;
 }
 .p-tag.p-tag-success {
