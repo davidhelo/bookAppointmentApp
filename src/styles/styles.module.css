@@ -1,0 +1,49 @@
+ 
+.availableTimeButton {
+    margin: 0.35rem;
+    background-color: transparent;
+    border-color: var(--primary-color);
+    color: var(--text-color-secondary);
+    
+}
+
+.availableTimeButton:hover, .selectedTimeButton:hover, .pButton:hover {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color-text) !important;
+    color: var(--primary-color-text) !important;
+}
+
+.selectedTimeButton {
+    margin: 0.35rem;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color-text);
+    color: var(--primary-color-text);
+}
+
+.buttonsContainer {
+    max-width: 450px;
+    margin: auto;
+}
+
+.confirmButton {
+    margin: 2rem; 
+    padding: 1rem;
+    border: 2px solid black;
+    background-color: #9e63a5;
+}
+
+.confirmButton:hover {
+    background-color: var(--highlight-text-color) !important;
+    border-color: black !important;
+}
+
+.pButton {
+    color: #ffffff;
+    background: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 0.75rem 1.25rem;
+    margin: 1rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    text-decoration: none !important;
+  }
