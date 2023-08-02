@@ -33,7 +33,7 @@ export default function Page() {
       </div>
       <hr></hr>
       <div id="contact" >
-         <h2 className='cursiveTitle'>Contáctanos</h2>
+         <h1 className='cursiveTitle'>Contáctanos</h1>
       </div>
     </Layout>
   );

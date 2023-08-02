@@ -7,8 +7,8 @@
   --surface-e:#ffffff;
   --surface-f:#ffffff;
   --text-color:#495057;
-  --text-color-secondary:#AB78B1;
-  --primary-color:#AB78B1;
+  --text-color-secondary:#8c5492;
+  --primary-color:#8c5492;
   --primary-color-text:#ffffff;
   --font-family:-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   --surface-0: #ffffff;
@@ -5000,7 +5000,7 @@
 }
 
 .p-menubar {
-  padding: 0.5rem;
+  padding: 0.5rem; 
   background: #f8f9fa;
   color: #495057;
   border: 1px solid #dee2e6;
