@@ -4024,11 +4024,11 @@
 }
 
 .p-card {
-  max-width: 45%;
+  max-width: 30%;
   min-width: 250px;
   max-height: auto;
   background: #ffffff;
-  box-shadow: 0px 0px 20px 1px lightgray !important;
+  /* box-shadow: 0px 0px 20px 1px lightgray !important; */
   color: #495057;
   box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
   border-radius: 6px;
@@ -4038,7 +4038,7 @@
   flex-direction: column;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 950px) {
   .p-card {
     max-width: 100%;
   }
@@ -5000,11 +5000,10 @@
 }
 
 .p-menubar {
-  padding: 0.5rem; 
+  padding: 0.3rem; 
   background: #f8f9fa;
   color: #495057;
   border: 1px solid #dee2e6;
-  border-radius: 6px;
 }
 .p-menubar .p-menuitem-link {
   padding: 0.75rem 1.25rem;

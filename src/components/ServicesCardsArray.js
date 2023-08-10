@@ -9,11 +9,11 @@ const allServicesCardCategory1 = servicesBank.facialServices.map(serviceItem => 
 const allServicesCardCategory2 = servicesBank.depilationServices.map(serviceItem => <ServiceCard serviceItem={serviceItem} />);
 
  return (<div>
-   <h2 className='cursiveTitle'>Facial</h2>
+   <h2 className='cursiveSubtitle'>Facial</h2>
    <div className={styles.servicesContainer}>
          {allServicesCardCategory1}
       </div>
-      <h2 className='cursiveTitle'>Depilación</h2>
+      <h2 className='cursiveTitle cursiveSubtitle'>Depilación</h2>
       <div className={styles.servicesContainer}>
          {allServicesCardCategory2}
       </div>

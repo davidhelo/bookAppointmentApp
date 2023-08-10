@@ -2,7 +2,7 @@
 html {
   scroll-padding-top: 3.5em;
   scroll-behavior: smooth;
-  margin: 1rem;
+  margin: 0rem;
 }
 
 html,
@@ -20,26 +20,43 @@ body {
   max-width: 100%;
 }
 
-* {
-  box-sizing: border-box;
-}
-
 #mainTitle {
-  /* font-family: 'Staatliches', cursive; */
-  /* font-family: 'Comfortaa', cursive; */
   font-size: 2.5rem;
   letter-spacing: 0.1rem;
+  text-align: center;
+}
+
+#home > p, #home > h3, #home > a {
+  margin: 3.5rem;
+}
+#home > a {
+  margin-left: 8rem;
 }
 
 .cursiveTitle {
   font-family: "borel", cursive;
   margin: 0.75rem;
+  text-align: center;
+  display: block;
+  font-size: 3rem;
+  position: relative;
+}
+.cursiveTitle::after {
+  content: '';
+  position: absolute;
+  top: calc(50% + 0.5rem);
+  height: 5px;
+  width: 2rem;
+  background: var(--primary-color);
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 5px;
 }
 
-#services {
-  /* background: #f0e7f1; */
-  border-radius: 6px;
-  padding: 1.25rem;
+.cursiveSubtitle {
+  font-family: "borel", cursive;
+  font-size: 2rem;
+  text-align: center;
 }
 
 a {
@@ -66,9 +83,8 @@ body > .p-menubar {
 }
 
 #home {
-  height: 85vh;
+  height: 100vh;
   padding: 1rem;
-  vertical-align: center;
   background-image: 
     linear-gradient(to bottom right, var(--background-color) 25%, transparent 60%), 
     linear-gradient(to left, var(--background-color), transparent 10%),
@@ -79,12 +95,12 @@ body > .p-menubar {
   background-size: cover; /* Resize the background image to cover the entire container */
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 950px) {
   body {
   max-width: 100%;
   }
   #home {
-      height: 90vh;
+    height: 95vh;
     background-image: radial-gradient(circle, transparent 60%, var(--background-color) 90%),
     linear-gradient(to left, var(--background-color), transparent 15%),
     linear-gradient(to right, var(--background-color), transparent 15%),
@@ -95,3 +111,9 @@ body > .p-menubar {
   }
 }
 
+#services {
+  color: white;
+  padding: 1.25rem;
+  background-color: var(--primary-color);
+  background-color: hsl(19, 82%, 74%);
+}

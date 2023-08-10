@@ -26,7 +26,6 @@ export default function Page() {
         <p>Remoción de vello y cuidado de la piel facial y corporal.</p>
         <Link href="#services" className={styles.pButton} >Ver servicios</Link>
       </div>
-      <hr></hr>
       <div id="services" >
         <h1 className='cursiveTitle'>Servicios </h1>
         <ServicesCardsArray />
