@@ -5000,6 +5000,7 @@
 }
 
 .p-menubar {
+  z-index: 1000;
   padding: 0.3rem; 
   background: #f8f9fa;
   color: #495057;

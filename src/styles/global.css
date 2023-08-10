@@ -85,6 +85,7 @@ body > .p-menubar {
 #home {
   height: 100vh;
   padding: 1rem;
+  margin-bottom: 2rem;
   background-image: 
     linear-gradient(to bottom right, var(--background-color) 25%, transparent 60%), 
     linear-gradient(to left, var(--background-color), transparent 10%),
@@ -116,4 +117,10 @@ body > .p-menubar {
   padding: 1.25rem;
   background-color: var(--primary-color);
   background-color: hsl(19, 82%, 74%);
+}
+
+#contact {
+  height: 100vh;
+  padding: 1rem;
+  margin-bottom: 2rem;
 }

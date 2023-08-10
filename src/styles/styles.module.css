@@ -38,12 +38,15 @@
 }
 
 .pButton {
-    color: #ffffff;
+    color: #ffff;
     background: var(--primary-color);
     border: 1px solid var(--primary-color);
-    padding: 0.75rem 1.25rem;
+    padding: 0.75rem 1.5rem;
     margin: 3rem;
     font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
     border-radius: 4px;
     text-decoration: none !important;
   }
@@ -74,3 +77,75 @@
     margin-bottom: 3rem;
 
 }
+
+
+.mainContainer {
+    max-width: 120rem;
+    margin: auto;
+    width: 92%;
+}
+
+.contactFormContainer {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: white;
+    padding: 4rem;
+    max-width: 50rem;
+    text-align: right;
+    width: 100%;
+    border-radius: 5px;
+    margin: 1rem auto 1rem auto;
+  }
+
+  @media only screen and (max-width: 37.5em) {
+    .contactFormContainer {
+      padding: 1.5rem;
+    }
+}
+
+  .contactFormField {
+    margin-bottom: 2rem;
+  }
+  
+  @media only screen and (max-width: 37.5em) {
+    .contactFormField {
+      margin-bottom: 1rem;
+    }
+  }
+  
+  .contactFormLabel {
+    color: #666;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: block;
+    text-align: left;
+  }
+  
+  .contactFormInput {
+    color: #333;
+    padding: 1.5rem;
+    width: 100%;
+    border: 1px solid #ebebeb;
+    font-size: 1rem;
+    letter-spacing: 0px;
+    background: #f0f0f0;
+    border-radius: 5px;
+    font-weight: 600;
+  }
+
+  .contactButton {
+    color: #ffff;
+    background: var(--primary-color);
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 5px;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+
+  @media only screen and (max-width: 37.5em) {
+    .contactButton {
+      width: 100%;
+    }
+  }
