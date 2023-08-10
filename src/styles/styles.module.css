@@ -75,11 +75,15 @@
 .servicesContainer {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content:center;
     margin-bottom: 3rem;
-
 }
 
+@media only screen and (min-width: 37.5em) {
+    .servicesContainer {
+      margin: 1rem 10% 3rem 10%;
+    }
+}
 
 .mainContainer {
     max-width: 120rem;
