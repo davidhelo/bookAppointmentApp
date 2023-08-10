@@ -42,11 +42,13 @@
     background: var(--primary-color);
     border: 1px solid var(--primary-color);
     padding: 0.75rem 1.5rem;
-    margin: 3rem;
+    margin: 3rem auto;
+    max-width: 12rem;
     font-size: 1rem;
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
+    text-align: center;
     border-radius: 4px;
     text-decoration: none !important;
   }

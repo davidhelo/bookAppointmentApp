@@ -24,14 +24,17 @@ body {
   font-size: 2.5rem;
   letter-spacing: 0.1rem;
   text-align: center;
+  color: #46505f;
 }
 
-#home > p, #home > h3, #home > a {
-  margin: 3.5rem;
+
+#home > p, #home > h3 {
+  margin: 1.5rem auto;
+  font-size: 1.6rem;
+  color: #414a58;
+  letter-spacing: 1px;
 }
-#home > a {
-  margin-left: 8rem;
-}
+
 
 .cursiveTitle {
   font-family: "borel", cursive;
@@ -83,16 +86,17 @@ body > .p-menubar {
 }
 
 #home {
+  display: flex;
+  flex-direction: column;
   height: 100vh;
   padding: 1rem;
-  margin-bottom: 2rem;
   background-image: 
     linear-gradient(to bottom right, var(--background-color) 25%, transparent 60%), 
     linear-gradient(to left, var(--background-color), transparent 10%),
     linear-gradient(to right, var(--background-color), transparent 10%),
     linear-gradient(to top left, var(--background-color) 5%, transparent 25%), 
-    url("/images/bg-main3.jpg");
-  background-position: 0% 0%;
+    url("/images/bg-main2.jpg");
+  background-position: 0% 70%;
   background-size: cover; /* Resize the background image to cover the entire container */
 }
 
@@ -106,7 +110,7 @@ body > .p-menubar {
     linear-gradient(to left, var(--background-color), transparent 15%),
     linear-gradient(to right, var(--background-color), transparent 15%),
     linear-gradient(to bottom, var(--background-color) 20%, transparent 65%),
-    url("/images/bg-main3.jpg");
+    url("/images/bg-main2.jpg");
     background-position:50% 10%;
     background-size: cover; /* Resize the background image to cover the entire container */
   }
