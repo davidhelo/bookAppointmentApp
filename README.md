@@ -1,1 +1,1 @@
-This is a appointment booking App.
+This is a appointment booking App for a Spa.
