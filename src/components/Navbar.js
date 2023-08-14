@@ -2,6 +2,7 @@
 
 import { Menubar } from 'primereact/menubar';
 import Layout from "../app/layout";
+import { useEffect } from 'react';
 
 // CSS imports
 //theme
@@ -33,10 +34,28 @@ export default function Navbar () {
   ];
 
   const start = 
-    <a href="/" style={{display: "flex", alignItems: "center"}}>
-        <img alt="logo" src="/images/Cosmelh-logo-top.png" height="60" className="mr-2"></img>
-        <img alt="logo" src="/images/Cosmelh-logo-bottom.png" height="25" className="mr-2"></img>
+    <a href="/" id="logo">
+        <img alt="logo" src="/images/Cosmelh-logo-top.png" id="logoImg1"  className="mr-2"></img>
+        <img alt="logo" src="/images/Cosmelh-logo-bottom.png" id="logoImg2" className="mr-2"></img>
     </a>;
+
+    useEffect(() => {
+        const handleScroll = () => {
+            console.log(window.scrollY);
+            if (window.scrollY > 30) {
+                document.getElementById("logoImg1").classList.add("logoImg1Shrinks");
+            } else {
+                document.getElementById("logoImg1").classList.remove("logoImg1Shrinks");
+            }
+        };
+        handleScroll();
+
+        window.addEventListener("scroll", handleScroll);
+        
+        return () => {
+        window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
 
     return (
         <Layout>

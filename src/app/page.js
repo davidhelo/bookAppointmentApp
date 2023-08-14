@@ -15,6 +15,8 @@ export const metadata = {
 }
 
 export default function Page() {
+  
+
   return (
     <Layout>
       <Navbar />
@@ -28,7 +30,6 @@ export default function Page() {
         <h1 className='cursiveTitle'>Servicios </h1>
         <ServicesCardsArray />
       </div>
-      <hr/>
       <section id="contact" >
          <h1 className='cursiveTitle'>Contáctanos</h1>
       <div class={styles.mainContainer}>
