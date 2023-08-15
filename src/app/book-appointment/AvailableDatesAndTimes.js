@@ -50,7 +50,7 @@ function sendAddAppointmentRequest (username, appointmentDateTime, showError, sh
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username: username, dateTime: appointmentDateTime })
     };
-    fetch('http://localhost:3000/api/addAppointment', requestOptions)
+    fetch('../api/addAppointment', requestOptions)
     .then(async response => {
         const isJson = response.headers.get('content-type')?.includes('application/json');
         const data = isJson && await response.json();
