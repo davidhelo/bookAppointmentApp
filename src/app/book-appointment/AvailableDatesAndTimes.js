@@ -6,7 +6,7 @@ import "../../styles/custom-light-theme.css";
 //core
 import "primereact/resources/primereact.min.css"; 
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, use } from "react";
 import { Calendar } from 'primereact/calendar';
 import { Button } from 'primereact/button';
 import { Toast } from 'primereact/toast';
@@ -15,10 +15,11 @@ import { addLocale } from 'primereact/api';
 import 'primeicons/primeicons.css';
 import styles from "../../styles/styles.module.css";
 
-//function to populate buttons from date
+//function to populate time buttons from date
 function getAvailableTimes(dateSelected, updatedateTimeState) {
     
     let availableTimes = [
+        {hour: 15, minute: 0},
         {hour: 16, minute: 0}, 
         {hour: 17, minute: 0},
         {hour: 18, minute: 0},
@@ -43,19 +44,43 @@ function getAvailableTimes(dateSelected, updatedateTimeState) {
     </div>);
 }
 
+function sendAddAppointmentRequest (username, appointmentDateTime, showError, showSuccess) {
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: username, dateTime: appointmentDateTime })
+    };
+    fetch('http://localhost:3000/api/addAppointment', requestOptions)
+    .then(async response => {
+        const isJson = response.headers.get('content-type')?.includes('application/json');
+        const data = isJson && await response.json();
 
+        // check for error response
+        if (!response.ok) {
+            // get error message from body or default to response status
+            const error = (data && data.message) || response.status;
+            return Promise.reject(error);
+        }
+        console.log(data);
+        showSuccess();
+    })
+    .catch(error => {
+        console.error('There was an error!', error);
+        showError("Error interno", "Lo sentimos se produjo un error interno. Por favor, intente mas tarde.");
+    });
+}
 
 function validateConfirmationTime(username, currentdateTimeState, showError, showSuccess) {
     
     if (currentdateTimeState.getHours() === 0 && currentdateTimeState.getMinutes() === 0) {
         console.log("Seleccione un horario: ", currentdateTimeState);
-        showError();
+        showError("Horario invalido", "Por favor seleccione un horario");
     } else if (username === "") {
         console.log("Ingrese nombre de usuario");
-        showError();
+        showError("Falta nombre de usuario", "Por favor ingrese nombre de usuario");
     } else {
-        console.log("cita confirmada: ", currentdateTimeState);
-        showSuccess();
+        console.log("datetime before sending request: ", currentdateTimeState);
+        sendAddAppointmentRequest(username, currentdateTimeState, showError, showSuccess);
     }
 
     return
@@ -100,12 +125,12 @@ export default function AvailableDatesAndTimes() {
     
     const toast = useRef(null);
 
-    const showError = () => {
+    const showError = (messageSummary, messageDetail) => {
         toast.current.show(
             {
                 severity:'error', 
-                summary: 'Horario invalido', 
-                detail:'Por favor seleccione un horario e ingrese nombre de usuario', 
+                summary: messageSummary, 
+                detail:messageDetail, 
                 life: 3000
             }
         );
