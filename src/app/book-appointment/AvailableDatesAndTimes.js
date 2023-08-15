@@ -1,7 +1,6 @@
 'use client'
 
 //theme
-// import "primereact/resources/themes/lara-light-purple/theme.css";
 import "../../styles/custom-light-theme.css";
 
 //core
@@ -17,7 +16,7 @@ import 'primeicons/primeicons.css';
 import styles from "../../styles/styles.module.css";
 
 //function to populate buttons from date
-function getAvailableTimes(dateSelected, updateDateTimeState) {
+function getAvailableTimes(dateSelected, updatedateTimeState) {
     
     let availableTimes = [
         {hour: 16, minute: 0}, 
@@ -26,15 +25,15 @@ function getAvailableTimes(dateSelected, updateDateTimeState) {
         {hour: 19, minute: 0}
     ];
     
-    let availableDateTimes = availableTimes.map((time) => new Date(dateSelected.getFullYear(), dateSelected.getMonth(), dateSelected.getDate(), time.hour, time.minute));
+    let availabledateTimes = availableTimes.map((time) => new Date(dateSelected.getFullYear(), dateSelected.getMonth(), dateSelected.getDate(), time.hour, time.minute));
 
-    let availableTimesButtons = availableDateTimes.map((time) => 
+    let availableTimesButtons = availabledateTimes.map((time) => 
         <Button 
             label={String(time.getHours()) + ":" + time.getMinutes().toLocaleString('en-US', {minimumIntegerDigits: 2} )} 
             icon="pi pi-clock" 
             className={dateSelected.getTime() === time.getTime() ? styles.selectedTimeButton : styles.availableTimeButton} 
             id={"button" + String(time.getHours()) + ":" + time.getMinutes().toLocaleString('en-US', {minimumIntegerDigits: 2})} 
-            onClick={() => updateDateTimeState(time)}
+            onClick={() => updatedateTimeState(time)}
             raised
         /> 
     );
@@ -46,13 +45,16 @@ function getAvailableTimes(dateSelected, updateDateTimeState) {
 
 
 
-function validateConfirmationTime(currentDateTimeState, showError, showSuccess) {
+function validateConfirmationTime(username, currentdateTimeState, showError, showSuccess) {
     
-    if (currentDateTimeState.getHours() === 0 && currentDateTimeState.getMinutes() === 0) {
-        console.log("Seleccione un horario: ", currentDateTimeState);
+    if (currentdateTimeState.getHours() === 0 && currentdateTimeState.getMinutes() === 0) {
+        console.log("Seleccione un horario: ", currentdateTimeState);
+        showError();
+    } else if (username === "") {
+        console.log("Ingrese nombre de usuario");
         showError();
     } else {
-        console.log("cita confirmada: ", currentDateTimeState);
+        console.log("cita confirmada: ", currentdateTimeState);
         showSuccess();
     }
 
@@ -67,7 +69,8 @@ export default function AvailableDatesAndTimes() {
     let nextMonth = month === 11 ? 0 : month + 1;
     let nextYear = nextMonth === 0 ? year + 1 : year;
 
-    const [dateTime, setDateTime] = useState(today);
+    const [dateTime, setdateTime] = useState(today);
+    const [usernameState, setusernameState] = useState("");
 
     let minDate = new Date();
         minDate = today;
@@ -102,7 +105,7 @@ export default function AvailableDatesAndTimes() {
             {
                 severity:'error', 
                 summary: 'Horario invalido', 
-                detail:'Por favor seleccione un horario', 
+                detail:'Por favor seleccione un horario e ingrese nombre de usuario', 
                 life: 3000
             }
         );
@@ -113,7 +116,7 @@ export default function AvailableDatesAndTimes() {
             {
                 severity:'success', 
                 summary: 'Cita confirmada', 
-                detail:'Su cita ha sido confirmada para el dia: ' + dateTime.toLocaleDateString("es-MX", {dateStyle: "full"}) + ", a las " + String(dateTime.getHours()) + ":" + dateTime.getMinutes().toLocaleString('en-US', {minimumIntegerDigits: 2}) + " horas.", 
+                detail: usernameState + ', Su cita ha sido confirmada para el dia: ' + dateTime.toLocaleDateString("es-MX", {dateStyle: "full"}) + ", a las " + String(dateTime.getHours()) + ":" + dateTime.getMinutes().toLocaleString('en-US', {minimumIntegerDigits: 2}) + " horas.", 
                 life: 3000
             }
         );
@@ -124,7 +127,7 @@ export default function AvailableDatesAndTimes() {
         <Toast ref={toast} />
         <Calendar 
             value={dateTime} 
-            onChange={(e) => setDateTime(e.value)} 
+            onChange={(e) => setdateTime(e.value)} 
             inline 
             minDate={minDate} 
             maxDate={maxDate} 
@@ -132,12 +135,23 @@ export default function AvailableDatesAndTimes() {
         />
         <h3>Fecha: {dateTime.toLocaleDateString("es-MX", options)} </h3>
         <h3>Selecciona la hora de tu cita: </h3>
-        {getAvailableTimes(dateTime, setDateTime)}
+        {getAvailableTimes(dateTime, setdateTime)}
+        <div className="book-appointment-name-field">
+        <label for="username" className="book-appointment-label">Usuario:</label>
+        <input 
+            id="username" 
+            name="username"
+            className="book-appointment-input"
+            placeholder="nombre de usuario" 
+            type="text" 
+            onChange={(e) => setusernameState(e.target.value)}
+            required ></input>
+        </div>
         <Button 
             label={"Confirmar"} 
             icon="pi pi-calendar" 
             id="buttonConfirm"
-            onClick={() => validateConfirmationTime(dateTime, showError, showSuccess)}
+            onClick={() => validateConfirmationTime(usernameState, dateTime, showError, showSuccess)}
             className={styles.confirmButton}
             raised
         /> 
