@@ -8,11 +8,6 @@ import utils from "../../styles/utils.module.css";
 
 import { useSearchParams } from 'next/navigation';
 
-export const metadata = {
-  title: 'Mis Citas',
-  description: 'Mis proximas citas',
-}
-
 const getUserAppointments = async (username) => {
     const res = await fetch('../api/getUserAppointments/?username=' + username)
     const appointments = await res.json()
