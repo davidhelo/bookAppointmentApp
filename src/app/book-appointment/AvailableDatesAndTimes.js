@@ -63,6 +63,7 @@ function sendAddAppointmentRequest (username, appointmentDateTime, showError, sh
         }
         console.log(data);
         showSuccess();
+        window.location.href = "/userAppointments?username=" + username;
     })
     .catch(error => {
         console.error('There was an error!', error);
@@ -79,7 +80,6 @@ function validateConfirmationTime(username, currentdateTimeState, showError, sho
         console.log("Ingrese nombre de usuario");
         showError("Falta nombre de usuario", "Por favor ingrese nombre de usuario");
     } else {
-        console.log("datetime before sending request: ", currentdateTimeState);
         sendAddAppointmentRequest(username, currentdateTimeState, showError, showSuccess);
     }
 

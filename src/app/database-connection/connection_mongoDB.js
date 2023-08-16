@@ -1,21 +1,22 @@
-const mongoose = require('mongoose');
+import { connect, Schema, models, model } from 'mongoose';
 
-mongoose.connect(process.env['MONGO_URI'], { useNewUrlParser: true, useUnifiedTopology: true });
+connect(process.env['MONGO_URI'], { useNewUrlParser: true, useUnifiedTopology: true });
 
 // mongoose schema
-let userSchema = new mongoose.Schema({
-  username: String
-});
+// let userSchema = new mongoose.Schema({
+//   username: String
+// });
 
-let appointmentSchema = new mongoose.Schema({
+let AppointmentSchema = new Schema({
   username: String,
   serviceDescription: String,
   dateTime: Date,
   available: Boolean
 });
 
-let userModel = mongoose.model('userModel', userSchema);
-let appointmentModel = mongoose.model('appointmentModel', appointmentSchema);
+// let userModel = mongoose.model('userModel', userSchema);
+// let AppointmentModel = model('appointmentModel', AppointmentSchema);
 
-exports.userModel = userModel;
-exports.appointmentModel = appointmentModel;
+// exports.userModel = userModel;
+// exports.AppointmentModel = AppointmentModel;
+export const AppointmentModel = models.AppointmentModel || model('AppointmentModel', AppointmentSchema);

@@ -1,11 +1,10 @@
 import { NextResponse } from 'next/server';
-import { appointmentModel } from '@/app/database-connection/connection_mongoDB';
+import { AppointmentModel } from '../../database-connection/connection_mongoDB';
 
   export async function POST(request) {
     const req = await request.json();
 
-    console.log("dateTime before model: ", req.dateTime);
-    const newAppointment = new appointmentModel({
+    const newAppointment = new AppointmentModel({
       username: req.username,
       serviceDescription: "Servicio",
       dateTime: new Date(req.dateTime),
