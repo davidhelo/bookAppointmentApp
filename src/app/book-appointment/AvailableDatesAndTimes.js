@@ -63,7 +63,7 @@ function sendAddAppointmentRequest (username, appointmentDateTime, showError, sh
         }
         console.log(data);
         showSuccess();
-        window.location.href = "/userAppointments?username=" + username;
+        window.location.href = `/userAppointments?username=${username}&showConfirmMessage=true`;
     })
     .catch(error => {
         console.error('There was an error!', error);
@@ -162,12 +162,12 @@ export default function AvailableDatesAndTimes() {
         <h3>Selecciona la hora de tu cita: </h3>
         {getAvailableTimes(dateTime, setdateTime)}
         <div className="book-appointment-name-field">
-        <label for="username" className="book-appointment-label">Usuario:</label>
+        <label for="username" className="book-appointment-label">Correo electronico:</label>
         <input 
             id="username" 
             name="username"
             className="book-appointment-input"
-            placeholder="nombre de usuario" 
+            placeholder="Correo Electronico" 
             type="text" 
             onChange={(e) => setusernameState(e.target.value)}
             required ></input>

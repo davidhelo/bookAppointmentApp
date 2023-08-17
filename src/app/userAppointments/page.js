@@ -20,6 +20,7 @@ const getUserAppointments = async (username, setAppointmentsState) => {
 export default function UserAppointments() {
     const searchParams = useSearchParams();
     const username = searchParams.get('username');
+    const ShowCorfirmationMessage = Boolean(searchParams.get('showConfirmMessage'));
 
     let [appointmentsState, setAppointmentsState] = useState({appointments: null, username: username, userFound: true});
 
@@ -54,6 +55,7 @@ export default function UserAppointments() {
   return (
     <Layout>
         <div className={styles.userAppointmentsComponent} style={{textAlign: 'center'}}>
+            {ShowCorfirmationMessage ? <h3>Gracias! Su cita ha sido agendada. A continuación verá sus proximas citas:</h3> : <></>}
             <h3> Usuario: {username} </h3>
             
             <Link href="/">Volver a Inicio</Link>
