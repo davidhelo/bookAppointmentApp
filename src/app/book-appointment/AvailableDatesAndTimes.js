@@ -48,7 +48,7 @@ function sendAddAppointmentRequest (username, appointmentDateTime, showError, sh
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username: username, dateTime: appointmentDateTime })
+        body: JSON.stringify({ username: username, dateTime: appointmentDateTime, serviceDescription: "Servicio general" })
     };
     fetch('../api/addAppointment', requestOptions)
     .then(async response => {
@@ -63,7 +63,8 @@ function sendAddAppointmentRequest (username, appointmentDateTime, showError, sh
         }
         console.log(data);
         showSuccess();
-        window.location.href = `/userAppointments?username=${username}&showConfirmMessage=true`;
+        setTimeout(() => {window.location.href = `/userAppointments?username=${username}&showConfirmMessage=true`}, 5000);
+        
     })
     .catch(error => {
         console.error('There was an error!', error);
@@ -80,6 +81,7 @@ function validateConfirmationTime(username, currentdateTimeState, showError, sho
         console.log("Ingrese nombre de usuario");
         showError("Falta nombre de usuario", "Por favor ingrese nombre de usuario");
     } else {
+        document.querySelector('#buttonConfirm').disabled = true;
         sendAddAppointmentRequest(username, currentdateTimeState, showError, showSuccess);
     }
 
@@ -141,8 +143,8 @@ export default function AvailableDatesAndTimes() {
             {
                 severity:'success', 
                 summary: 'Cita confirmada', 
-                detail: usernameState + ', Su cita ha sido confirmada para el dia: ' + dateTime.toLocaleDateString("es-MX", {dateStyle: "full"}) + ", a las " + String(dateTime.getHours()) + ":" + dateTime.getMinutes().toLocaleString('en-US', {minimumIntegerDigits: 2}) + " horas.", 
-                life: 3000
+                detail: usernameState + ', Su cita ha sido confirmada para el dia: ' + dateTime.toLocaleDateString("es-MX", {dateStyle: "full"}) + ", a las " + String(dateTime.getHours()) + ":" + dateTime.getMinutes().toLocaleString('en-US', {minimumIntegerDigits: 2}) + " horas. En un momento seras redireccionado para ver todas tus proximas citas.", 
+                life: 5000
             }
         );
     }
