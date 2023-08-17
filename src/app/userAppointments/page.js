@@ -26,7 +26,6 @@ export default function UserAppointments() {
     let [appointmentsState, setAppointmentsState] = useState({appointments: null, username: username, userFound: true});
 
     let userAppointmentsData = [];
-    // <IndeterminateProgressBar />;
 
     if (appointmentsState.appointments === null) {
         getUserAppointments(appointmentsState.username, setAppointmentsState);
@@ -58,7 +57,7 @@ export default function UserAppointments() {
         <div className={styles.userAppointmentsComponent}>
             {ShowCorfirmationMessage ? <h3>Gracias! Su cita ha sido agendada. A continuación verá sus proximas citas:</h3> : <></>}
             <h3> Usuario: {username} </h3>
-            <Link href="/book-appointment" className={styles.pButton} >Agendar otra cita</Link>
+            <a href="/book-appointment" className={styles.pButton} >Agendar otra cita</a>
             <br /><br />
             <Link href="/">Volver a Inicio</Link>
             <hr />
