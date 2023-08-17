@@ -26,7 +26,7 @@ export default function BookAppointment() {
           />
           <h1 className={utils.heading2Xl}>Agendar una cita</h1>
           <Link href="/">Volver a Inicio</Link>
-          <h2>Servicio: limpieza Facial</h2>
+          <h2>Servicio general</h2>
           <AvailableDatesAndTimes />
       </div>
     </Layout>

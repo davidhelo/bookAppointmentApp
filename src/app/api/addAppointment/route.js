@@ -6,7 +6,7 @@ import { AppointmentModel } from '../../database-connection/connection_mongoDB';
 
     const newAppointment = new AppointmentModel({
       username: req.username,
-      serviceDescription: "Servicio",
+      serviceDescription: req.serviceDescription,
       dateTime: new Date(req.dateTime),
       available: true
     });
