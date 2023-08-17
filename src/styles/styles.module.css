@@ -155,3 +155,96 @@
       width: 100%;
     }
   }
+
+  .indeterminateProgressBar {
+    /* Color */
+    background-color: #d1d5db;
+  
+    /* Rounded border */
+    border-radius: 20px;
+  
+    /* Size */
+    height: 0.5rem;
+  
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .indeterminateProgressBar__progress {
+    /* Color */
+    background-color: #8c5492;
+  
+    /* Rounded border */
+    border-radius: 9999px;
+  
+    /* Absolute position */
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    width: 50%;
+  
+    /* Move the bar infinitely */
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-name: indeterminate-progress-bar;
+  }
+  
+  @keyframes indeterminate-progress-bar {
+    from {
+        left: -50%;
+    }
+    to {
+        left: 100%;
+    }
+  }
+
+  .userAppointmentsComponent {
+    text-align: center;
+  }
+
+  .upcomingAppointmentCard {
+    list-style-type: none;
+    border: 1px solid #8c5492;
+    border-radius: 6px;
+    padding: 1.25rem 3rem;
+    margin: 0.75rem;
+  }
+
+  .upcomingServiceCardContainer {
+    width: 400px;
+    margin: auto;
+    text-align: left;
+  }
+
+  .upcomingAppointmentList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+
+  /* To center the spinner*/
+.posCenter {
+  top: calc(50% - 40px);
+  left: calc(50% - 40px);
+  z-index: 1000;
+}
+
+.loader {
+  border: 10px solid #f3f3f3;
+  border-top: 10px solid #3498db;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

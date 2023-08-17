@@ -41,7 +41,6 @@ export default function Navbar () {
 
     useEffect(() => {
         const handleScroll = () => {
-            console.log(window.scrollY);
             if (window.scrollY > 30) {
                 document.getElementById("logoImg1").classList.add("logoImg1Shrinks");
             } else {
