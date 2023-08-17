@@ -7,6 +7,7 @@ import { useState } from "react";
 
 import styles from "@/styles/styles.module.css";
 import '@/styles/global.css';
+import "@/styles/custom-light-theme.css";
 
 import { useSearchParams } from 'next/navigation';
 
@@ -54,10 +55,11 @@ export default function UserAppointments() {
 
   return (
     <Layout>
-        <div className={styles.userAppointmentsComponent} style={{textAlign: 'center'}}>
+        <div className={styles.userAppointmentsComponent}>
             {ShowCorfirmationMessage ? <h3>Gracias! Su cita ha sido agendada. A continuación verá sus proximas citas:</h3> : <></>}
             <h3> Usuario: {username} </h3>
-            
+            <Link href="/book-appointment" className={styles.pButton} >Agendar otra cita</Link>
+            <br /><br />
             <Link href="/">Volver a Inicio</Link>
             <hr />
                 <h3>{appointmentsState.userFound ? <p>Citas </p> : <p>Usuario no encontrado</p>} </h3>
