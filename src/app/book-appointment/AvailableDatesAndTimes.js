@@ -39,9 +39,9 @@ function getAvailableTimes(dateSelected, updatedateTimeState) {
         /> 
     );
 
-    return (<div className={styles.buttonsContainer}>
-        {availableTimesButtons}
-    </div>);
+    return (<div>
+                {availableTimesButtons}
+            </div>);
 }
 
 function sendAddAppointmentRequest (username, appointmentDateTime, showError, showSuccess) {
@@ -162,7 +162,9 @@ export default function AvailableDatesAndTimes() {
         />
         <h3>Fecha: {dateTime.toLocaleDateString("es-MX", options)} </h3>
         <h3>Selecciona la hora de tu cita: </h3>
-        {getAvailableTimes(dateTime, setdateTime)}
+        <div className={styles.buttonsContainer}>
+            {getAvailableTimes(dateTime, setdateTime)}
+        </div>
         <div className="book-appointment-name-field">
         <label for="username" className="book-appointment-label">Correo electronico:</label>
         <input 
