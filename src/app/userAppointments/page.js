@@ -55,7 +55,7 @@ export default function UserAppointments() {
   return (
     <Layout>
         <div className={styles.userAppointmentsComponent}>
-            {ShowCorfirmationMessage ? <h3>Gracias! Su cita ha sido agendada. A continuación verá sus proximas citas:</h3> : <></>}
+            {ShowCorfirmationMessage ? <h3>Gracias! Su cita ha sido agendada. A continuación verá sus proximas citas:</h3> : <h3>Proximas citas:</h3>}
             <h3> Usuario: {username} </h3>
             <a href="/book-appointment" className={styles.pButton} >Agendar otra cita</a>
             <br /><br />
