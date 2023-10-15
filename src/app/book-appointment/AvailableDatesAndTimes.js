@@ -7,42 +7,15 @@ import "../../styles/custom-light-theme.css";
 import "primereact/resources/primereact.min.css"; 
 
 import React, { useState, useRef, use } from "react";
-import { Calendar } from 'primereact/calendar';
 import { Button } from 'primereact/button';
 import { Toast } from 'primereact/toast';
-import { addLocale } from 'primereact/api';
+import { Steps } from "primereact/steps";
 
 import 'primeicons/primeicons.css';
 import styles from "../../styles/styles.module.css";
-
-//function to populate time buttons from date
-function getAvailableTimes(dateSelected, updatedateTimeState) {
-    
-    let availableTimes = [
-        {hour: 15, minute: 0},
-        {hour: 16, minute: 0}, 
-        {hour: 17, minute: 0},
-        {hour: 18, minute: 0},
-        {hour: 19, minute: 0}
-    ];
-    
-    let availabledateTimes = availableTimes.map((time) => new Date(dateSelected.getFullYear(), dateSelected.getMonth(), dateSelected.getDate(), time.hour, time.minute));
-
-    let availableTimesButtons = availabledateTimes.map((time) => 
-        <Button 
-            label={String(time.getHours()) + ":" + time.getMinutes().toLocaleString('en-US', {minimumIntegerDigits: 2} )} 
-            icon="pi pi-clock" 
-            className={dateSelected.getTime() === time.getTime() ? styles.selectedTimeButton : styles.availableTimeButton} 
-            id={"button" + String(time.getHours()) + ":" + time.getMinutes().toLocaleString('en-US', {minimumIntegerDigits: 2})} 
-            onClick={() => updatedateTimeState(time)}
-            raised
-        /> 
-    );
-
-    return (<div>
-                {availableTimesButtons}
-            </div>);
-}
+import SelectDate from "@/components/SelectDate";
+import SelectTime from "@/components/SelectTime";
+import { useEffect } from "react";
 
 function sendAddAppointmentRequest (username, appointmentDateTime, showError, showSuccess) {
     const requestOptions = {
@@ -91,32 +64,20 @@ function validateConfirmationTime(username, currentdateTimeState, showError, sho
 export default function AvailableDatesAndTimes() {
     let today = new Date();
     today.setHours(0, 0);
-    let month = today.getMonth();
-    let year = today.getFullYear();
-    let nextMonth = month === 11 ? 0 : month + 1;
-    let nextYear = nextMonth === 0 ? year + 1 : year;
 
     const [dateTime, setdateTime] = useState(today);
     const [usernameState, setusernameState] = useState("");
+    const [stepsActiveIndex, setStepsActiveIndex] = useState(0);
 
-    let minDate = new Date();
-        minDate = today;
+    const isInitialMount = useRef(true);
 
-    let maxDate = new Date();
-        maxDate.setMonth(nextMonth);
-        maxDate.setFullYear(nextYear);
-
-    // calendar parameters
-    addLocale('es', {
-        firstDayOfWeek: 1,
-        dayNames: ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'],
-        dayNamesShort: ['dom', 'lun', 'mar', 'mié', 'jue', 'vie', 'sáb'],
-        dayNamesMin: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
-        monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-        monthNamesShort: ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'],
-        today: 'Hoy',
-        clear: 'Limpiar'
-    });
+    useEffect(() => {
+        if (isInitialMount.current) {
+            isInitialMount.current = false; 
+        } else {
+            setStepsActiveIndex(stepsActiveIndex + 1);
+        }
+    }, [dateTime]);
 
     const options = {
         weekday: "long",
@@ -149,23 +110,45 @@ export default function AvailableDatesAndTimes() {
         );
     }
 
+    const items = [
+        {
+            label: 'Fecha'
+        },
+        {
+            label: 'Hora'
+        },
+        {
+            label: 'Información'
+        },
+        {
+            label: 'Confirmación'
+        }
+      ];
+
  return (
     <div className="card flex justify-content-center">
         <Toast ref={toast} />
-        <Calendar 
-            value={dateTime} 
-            onChange={(e) => setdateTime(e.value)} 
-            inline 
-            minDate={minDate} 
-            maxDate={maxDate} 
-            locale="es"
-        />
-        <h3>Fecha: {dateTime.toLocaleDateString("es-MX", options)} </h3>
-        <h3>Selecciona la hora de tu cita: </h3>
-        <div className={styles.buttonsContainer}>
-            {getAvailableTimes(dateTime, setdateTime)}
+        <div className="p-steps-container">
+            <Steps 
+                model={items}
+                activeIndex={stepsActiveIndex} 
+                onSelect={(e) => setStepsActiveIndex(e.index)} 
+                readOnly={true} />
         </div>
-        <div className="book-appointment-name-field">
+        {stepsActiveIndex > 0 ? 
+        <Button 
+            label={"Volver"} 
+            icon="pi pi-arrow-left" 
+            id="buttonPreviousStep"
+            onClick={() => setStepsActiveIndex(stepsActiveIndex-1)}
+            className={styles.previousStepButton}
+            raised
+        /> : <></>}
+        {stepsActiveIndex === 0 ? <SelectDate date={dateTime} setDate={setdateTime} /> : <></>}
+        {stepsActiveIndex === 1 ? <SelectTime date={dateTime} setDate={setdateTime} /> : <></>}
+        
+        {stepsActiveIndex === 2 
+        ? <div className="book-appointment-name-field">
         <label for="username" className="book-appointment-label">Correo electronico:</label>
         <input 
             id="username" 
@@ -175,15 +158,41 @@ export default function AvailableDatesAndTimes() {
             type="text" 
             onChange={(e) => setusernameState(e.target.value)}
             required ></input>
-        </div>
+        {usernameState != "" ? 
         <Button 
-            label={"Confirmar"} 
-            icon="pi pi-calendar" 
-            id="buttonConfirm"
-            onClick={() => validateConfirmationTime(usernameState, dateTime, showError, showSuccess)}
-            className={styles.confirmButton}
-            raised
-        /> 
+                label={"Continuar"} 
+                icon="pi pi-arrow-right" 
+                id="buttonContinue"
+                onClick={() => setStepsActiveIndex(stepsActiveIndex+1)}
+                className={styles.confirmButton}
+                raised
+            /> : <></>}
+        </div>
+        : <></>}
+        {stepsActiveIndex === 3 
+        ? <div>
+            <br/>
+            <h3>RESUMEN DE LA CITA</h3>
+            <br/>
+            <h3>Fecha: {dateTime.toLocaleDateString("es-MX", {
+                weekday: "long",
+                year: "numeric",
+                month: "long",
+                day: "numeric"
+            }
+            )}
+            </h3>
+            <h3>Hora: {String(dateTime.getHours()) + ":" + dateTime.getMinutes().toLocaleString('en-US', {minimumIntegerDigits: 2}) + " horas"}</h3>
+            <h3>Usuario: {usernameState}</h3>
+            <Button 
+                label={"Confirmar"} 
+                icon="pi pi-calendar" 
+                id="buttonConfirm"
+                onClick={() => validateConfirmationTime(usernameState, dateTime, showError, showSuccess)}
+                className={styles.confirmButton}
+                raised
+            />
+        </div> :<></> }
     </div>
  );
 

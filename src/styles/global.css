@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Borel&family=Comfortaa:wght@700&family=Dancing+Script:wght@700&family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gabarito&display=swap');
 
 * {
   box-sizing: border-box;
@@ -12,12 +12,11 @@ html {
 
 html,
 body {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
-    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; 
-  line-height: 1.6;
+  font-family: 'Gabarito', sans-serif, roboto;
+  line-height: 1;
   font-size: 16px;
   background:  var(--background-color); /*#eef4ec; */
-  color: #3f454b;
+  color: #62468f;
 }
 
 body {
@@ -162,13 +161,15 @@ body > .p-menubar {
 }
 
 .book-appointment-label {
-  margin-top: 1rem;
+  margin-top: 35px;
+  margin-bottom: 10px;
   font-size: 1.5rem;
   font-weight: 600;
 }
 
 .book-appointment-input {
   padding: 0.5rem;
+  margin-bottom: 25px;
   width: 400px;
   font-size: 1.3rem;
   border-radius: 6px;

@@ -13,20 +13,18 @@ export const metadata = {
   description: 'Agendar una cita',
 }
 
+
+
 export default function BookAppointment() {
+ 
+
   return (
     <Layout>
       <div className="book-appointment-component" style={{textAlign: 'center'}}>
-          <Image 
-            src="/images/Cosmelh-logo.png"
-            width={200}
-            height={200}
-            alt="logo"
-            style={{margin: "auto"}}
-          />
+          
           <h1 className={utils.heading2Xl}>Agendar una cita</h1>
           <Link href="/">Volver a Inicio</Link>
-          <h2>Servicio general</h2>
+          <h3>Servicio general</h3>
           <AvailableDatesAndTimes />
       </div>
     </Layout>
