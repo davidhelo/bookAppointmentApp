@@ -1,6 +1,7 @@
 import '../styles/global.css';
 import styles from '../styles/styles.module.css';
 import "../styles/custom-light-theme.css";
+import "../styles/theme-styles.css"
 
 import Link from "next/link";
 import Layout from "./layout";
