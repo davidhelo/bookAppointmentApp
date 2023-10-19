@@ -148,7 +148,7 @@ export default function AvailableDatesAndTimes() {
         {stepsActiveIndex === 1 ? <SelectTime date={dateTime} setDate={setdateTime} /> : <></>}
         
         {stepsActiveIndex === 2 
-        ? <div className="book-appointment-name-field">
+        ? <div className="book-appointment-name-field animate-in">
         <label for="username" className="book-appointment-label">Correo electronico:</label>
         <input 
             id="username" 
@@ -170,7 +170,7 @@ export default function AvailableDatesAndTimes() {
         </div>
         : <></>}
         {stepsActiveIndex === 3 
-        ? <div>
+        ? <div className="animate-in">
             <br/>
             <h3>RESUMEN DE LA CITA</h3>
             <br/>

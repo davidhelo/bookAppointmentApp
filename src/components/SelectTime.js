@@ -44,7 +44,7 @@ function getAvailableTimes(dateSelected, updatedateTimeState) {
 export default function SelectTime({date, setDate}) {
     
     return (
-        <div>
+        <div className="animate-in">
             <h3>Fecha: {date.toLocaleDateString("es-MX", {
                 weekday: "long",
                 year: "numeric",

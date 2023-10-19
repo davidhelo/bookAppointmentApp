@@ -1,7 +1,7 @@
 'use client'
 
 //theme
-import "../styles/custom-light-theme.css";
+import "../styles/theme-styles.css";
 
 //core
 import "primereact/resources/primereact.min.css"; 
@@ -44,7 +44,7 @@ export default function SelectDate({date, setDate}) {
         maxDate.setMonth(nextMonth);
         maxDate.setFullYear(nextYear);
     return (
-        <div>
+        <div className="animate-in">
             <Calendar 
                 value={date} 
                 onChange={(e) => setDate(e.value)} 
